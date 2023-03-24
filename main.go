@@ -6,13 +6,17 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+var router = gin.Default()
+
 func main() {
-	r := gin.Default()
 
-	r.GET("")
+	// mapping of endpoints
+	mapUrls()
 
-	err := r.Run(":8080")
+	// run the application
+	err := router.Run(":8080")
 	if err != nil {
 		log.Fatalf("impossible to start server: %s", err)
 	}
+
 }
